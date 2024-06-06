@@ -8,6 +8,7 @@
 	<Script file="localization.de.lua"/>
 	<Script file="localization.fr.lua"/>
 	<Script file="localization.es.lua"/>
+	<Script file="localization.ru.lua"/>
 	<Script file="ChatBar.lua" />
 	
 	<Button name="ChatBarButtonTemplate" virtual="true" hidden="true">
