@@ -586,6 +586,15 @@ function ChatBar_CreateFrameMenu()
 		info.checked = 1;
 	end
 	UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL);
+
+	--Alt Art
+	local info = {};
+	info.text = CHATBAR_MENU_MAIN_ALTART_GLASS;
+	info.func = ChatBar_Toggle_AltArt;
+	if (ChatBar_AltArt) then
+		info.checked = 1;
+	end
+	UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL);
 	
 	--Text On Buttons
 	local info = {};
