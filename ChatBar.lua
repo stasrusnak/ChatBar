@@ -1,61 +1,3 @@
---------------------------------------------------------------------------
--- ChatBar.lua 
---------------------------------------------------------------------------
---[[
-ChatBar
-
-Author: AnduinLothar KarlKFI@cosmosui.org
-Graphics: Vynn
-
--Button Bar for openning chat messages of each type.
-
-Change Log:
-v2.2
--Added Alternate Artwork (thanks Zseton)
-v2.1
--Added Spanish Localization (thanks NeKRoMaNT)
-v2.0
--Added an option to Hide All Buttons
--Fixed menu not showing a list of hidden buttons
-v1.9
--Fixed chat type openning for new editbox:SetAttribute syntax
-v1.8
--Prepared for Lua 5.1
--Added embedded SeaPrint for printing (was already used, just not included)
-v1.7
--Added Raid Warning (A) and Battleground (B) chat
-v1.6
--Channel Reorder no longer requires Sky
--toc to 11200
-v1.5
--Fixed saved variables issue with 1.11 not saving nils
--Fixed a nill bug with the right-click menu
-v1.4
--Fixed a nil loading error
-v1.3
--Fixed nil SetText errors
--Fixed channel 10 nil errors
--Added Channel Reorder (from ChannelManager) if you have Sky installed (uses many library functions)
-v1.2
--VisibilityOptions AutoHide is now smarter and shows whenever ChatBar is sliding or being dragged or the cursor is over its menu
--Fixed Eclipse onload error
--Fixed Whisper abreviation
-v1.1
--Addon Channels Hidden added GuildMap
--Text has been made Localizable
--Officer chat shows up if you CanEditOfficerNote()
--Buttons now correctly update when raid, party, and guild changes
--Hide Text now correctly says Show Text
--Fixed button for channel 8 to diplay and tooltip correctly
--Added Reset Position Option
--Added Options to hide the each button by chat type or channel name (hide from button menu, show from main sub menu)
--Added option to use Channel Numbers as text overlay
--Added VisibilityOptions, however autohide is a bit finicky atm.
-v1.0
--Initial Release
-
-]]--
-
 --------------------------------------------------
 -- Globals
 --------------------------------------------------
@@ -737,14 +679,16 @@ function ChatBar_CreateFrameMenu()
 		info.checked = 1;
 	end
 	UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL);
+
+	--Убрал лив со всех каналов
 	
-	if (ChatBar_ReorderChannels) then
-		--Reorder Channels
-		local info = {};
-		info.text = CHATBAR_MENU_MAIN_REORDER;
-		info.func = ChatBar_ReorderChannels;
-		UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL);
-	end
+	-- if (ChatBar_ReorderChannels) then
+	-- 	--Reorder Channels
+	-- 	local info = {};
+	-- 	info.text = CHATBAR_MENU_MAIN_REORDER;
+	-- 	info.func = ChatBar_ReorderChannels;
+	-- 	UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL);
+	-- end
 end
 
 function ChatBar_CreateHiddenButtonsMenu()
